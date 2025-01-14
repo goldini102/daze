@@ -27,16 +27,20 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
       margin-bottom: 20px;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
 
     #loading-screen p {
       font-size: 24px;
       color: white;
       font-family: Arial, sans-serif;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
 
-    .hidden {
-      display: none;
+    .fade-out {
+      opacity: 0;
     }
 
     @keyframes spin {
@@ -59,8 +63,8 @@
     setTimeout(() => {
       const spinner = document.querySelector('.spinner');
       const text = document.querySelector('#loading-screen p');
-      spinner.classList.add('hidden');
-      text.classList.add('hidden'); 
+      spinner.classList.add('fade-out');
+      text.classList.add('fade-out');
     }, 3000);
   </script>
 </body>
