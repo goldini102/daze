@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loading Screen</title>
   <style>
-
     #loading-screen {
       position: fixed;
       top: 0;
@@ -18,7 +17,6 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 0.5s ease;
     }
 
     .spinner {
@@ -37,6 +35,10 @@
       font-family: Arial, sans-serif;
     }
 
+    .hidden {
+      display: none;
+    }
+
     @keyframes spin {
       0% {
         transform: rotate(0deg);
@@ -50,16 +52,15 @@
 <body>
   <div id="loading-screen">
     <div class="spinner"></div>
-    <p>Welcome</p>
+    <p>Welcome to Daze Bot :)</p>
   </div>
 
   <script>
     setTimeout(() => {
-      const loadingScreen = document.getElementById('loading-screen');
-      loadingScreen.style.opacity = '0';
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 500);
+      const spinner = document.querySelector('.spinner');
+      const text = document.querySelector('#loading-screen p');
+      spinner.classList.add('hidden');
+      text.classList.add('hidden'); 
     }, 3000);
   </script>
 </body>
