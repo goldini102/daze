@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading Screen</title>
+  <title>Daze Bot</title>
   <style>
     #loading-screen {
       position: fixed;
@@ -28,7 +28,7 @@
       animation: spin 1s linear infinite;
       margin-bottom: 20px;
       opacity: 1;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 0.5s ease;
     }
 
     #loading-screen p {
@@ -36,21 +36,11 @@
       color: white;
       font-family: Arial, sans-serif;
       opacity: 1;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 0.5s ease;
     }
 
     .fade-out {
       opacity: 0;
-      visibility: hidden;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
     }
   </style>
 </head>
@@ -64,8 +54,14 @@
     setTimeout(() => {
       const spinner = document.querySelector('.spinner');
       const text = document.querySelector('#loading-screen p');
+
       spinner.classList.add('fade-out');
       text.classList.add('fade-out');
+
+      setTimeout(() => {
+        spinner.style.visibility = 'hidden';
+        text.style.visibility = 'hidden';
+      }, 500);
     }, 3000);
   </script>
 </body>
